@@ -2,7 +2,7 @@ import requests
 import configfile
 import json
 #import sys
-
+# This code is the main player which pulls the API's and gives the output in JSON formats
 
 
 class myDefinedError(Exception):
