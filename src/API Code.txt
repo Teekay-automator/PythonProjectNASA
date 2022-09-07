@@ -1,0 +1,44 @@
+
+# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+
+import json
+import requests
+
+class MakeApiCall:
+
+    def __init__(self,api):
+        self.get_data(api)
+
+    def get_data(self,api):
+        response= requests.get(f"{api}")
+        if response.status_code==200:
+            print("Succesfully fetched the data")
+            self.formatted_print(response.json())
+        else:
+            print(f"There is a {response.status_code} error with your request")
+
+    def formatted_print(self,obj):
+        text= json.dumps(obj,sort_keys=True,indent=4)
+        print(text)
+        dict1 = {text}
+        For item in dict1.items():
+            print(item)
+
+
+
+    def getCombedData():
+        pass
+    
+
+
+if __name__ == "__main__":
+    api_call = MakeApiCall(
+        "https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=DEMO_KEY")
+        
+    #api_call.get_data()
+    #api_call = MakeApiCall("https://api.nasa.gov/neo/rest/v1/feed?start_date=START_DATE&end_date=END_DATE&api_key=API_KEY")
+    #api_call=MakeApiCall("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&count=11")
+
+
+
+
